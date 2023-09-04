@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyTutor - Tutor Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        /* Dropdown Button */
+        .dropbtn {
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+        }
+
+        /* The container <div> - needed to position the dropdown content */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Dropdown Content (Hidden by Default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        /* Links inside the dropdown */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Change color of dropdown links on hover */
+        .dropdown-content a:hover {background-color: #ddd;}
+
+        /* Show the dropdown menu on hover */
+        .dropdown:hover .dropdown-content {display: block;}
+
+        /* Change the background color of the dropdown button when the dropdown content is shown */
+        .dropdown:hover .dropbtn {background-color: #4cbecd;}
+
+        .navbar {
+            background-color:#89cff0;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+        .navbar h1 {
+            margin: 0;
+        }
+        .navbar button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .content-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .instructions {
+            flex: 1;
+            padding: 20px;
+            border-right: 1px solid #ccc;
+        }
+        .form-container {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+        }
+        .form-container p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .form-container form {
+            text-align: left;
+            margin-top: 20px;
+        }
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        .form-container button {
+            width:35%;
+            padding: 10px;
+            background-color: #89cff0;
+            color: black;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        #application-table {
+            border-collapse: collapse;
+            width: 100%;
+            border: 2px solid #333; /* Added a distinct border */
+        }
+
+        #application-table th, #application-table td {
+            border: 1px solid #333; /* Border for table cells */
+            padding: 8px;
+            text-align: left;
+        }
+
+        #application-table th {
+            background-color: #f2f2f2;
+        }
+
+        #application-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="dropdown">
+        <button class="dropbtn">&#9776;</button>
+        <div class="dropdown-content">
+            <a href="studenthome.html">Home</a>
+                <a href="createApplication.html">Create Application</a>
+                <a href="applications.html">View Applications</a>
+                <a href="https://lukhaya.github.io/mytutorapp/TutorialsPage.html">Manage Tutorials</a>
+        </div>
+    </div>
+
+    <h1>MyTutor</h1>
+    <div>
+        <button id="helpButton">Help</button>
+        <button id="logoutButton">Logout</button>
+    </div>
+</div>
+<div class="content-container">
+    <div class="instructions">
+        <h2>Instructions</h2>
+        <p>Please fill out the form below to apply as a tutor.</p>
+        <p>Kindly note that by submitting this form you consent to your academic record being checked by the department.</p><br>
+
+    </div>
+    <div class="form-container">
+        <h2>Tutor Application Form</h2>
+        <form action="#" method="POST">
+            <label for="studNo">Student Number</label>
+            <input type="text" id="studNo" name="studNo" required>
+
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="surname">Surname</label>
+            <input type="text" id="surname" name="surname" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="course">Course Code</label>
+            <input type="text" id="course" name="course" required>
+
+            <label for="transcript">Transcript</label>
+            <input type="text" id="transcript" name="transcript" required>
+
+            <button type="submit"><a href="applications.html">Submit</a></button>
+            <button type="cancel">Cancel</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
