@@ -16,7 +16,7 @@ public class ApplicationCreation {
     private String details;   
     private LocalDateTime duedate;
 
-    public Application(String department, String details, LocalDateTime duedate) {
+    public ApplicationCreation(String department, String details, LocalDateTime duedate) {
         this.department = department;
         this.details = details;
         this.duedate = duedate;
