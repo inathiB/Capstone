@@ -1,0 +1,39 @@
+.course-page {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  #header {
+    background-color: lightblue;
+    color: white;
+    padding: 20px;
+}
+#content {
+    padding: 20px;
+}
+.tile {
+    display: inline-block;
+    width: 200px;
+    height: auto;
+    padding: 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    margin: 10px;
+    transition: background-color 0.3s;
+}
+.tile:hover {
+    background-color: #0056b3;
+}
+.tile-icon {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+  
+  .tile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    background-color: #eaeaea;
+  }
+  
