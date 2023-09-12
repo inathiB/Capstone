@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.Collection;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
@@ -10,8 +10,8 @@ import java.time.LocalDateTime;
 @Document
 public class ApplicationCreation {
     @Id
-    private String id;
     @Indexed(unique = true)
+    private String id;
     private String department;
     private String details;   
     private LocalDateTime duedate;

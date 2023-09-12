@@ -1,25 +1,27 @@
-package com.example.demo;
+package com.example.demo.Logic;
 
+import com.example.demo.Collection.ApplicationCreation;
+import com.example.demo.Repository.ApplicationCreationRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import java.util.*;
 
-import java.util.List;
 @AllArgsConstructor
 @Service
 public class ApplicationCreationService {
 
     private final ApplicationCreationRepository applicationCreationRepository;
-    public ApplicationCreation getApplicationCreation(department){
+    public ApplicationCreation getApplicationCreation(String department){
         Optional<ApplicationCreation> optionalApplicationCreation = applicationCreationRepository.findApplicationCreationByDepartment(department);
         return optionalApplicationCreation.orElse(null);
-    } List<ApplicationCreation> getAllApplicationCreations(){
+    } public List<ApplicationCreation> getAllApplicationCreations(){
         return applicationCreationRepository.findAll();
     }
     public void addApplicationCreation (ApplicationCreation applicationCreation){
         applicationCreationRepository.insert(applicationCreation);
     }
-    public void deleteApplicationCreation(String courseID){
-        applicationCreationRepository.deleteByDepartment(department);
+    public void deleteApplicationCreation(String department){
+        applicationCreationRepository.deleteById(department);
     }
 
 }

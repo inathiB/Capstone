@@ -1,5 +1,6 @@
-package com.example.demo;
+package com.example.demo.Collection;
 
+//import com.example.demo.Transcript;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;

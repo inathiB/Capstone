@@ -1,9 +1,9 @@
-package com.example.demo;
+package com.example.demo.Controllers;
 
+import com.example.demo.Collection.ApplicationCreation;
+import com.example.demo.Logic.ApplicationCreationService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,14 +17,14 @@ public class ApplicationCreationController {
         return applicationCreationService.getAllApplicationCreations();
     };
     @GetMapping("/aplliacationCreation{department}")
-    public ApplicationCreation getApplicationCreation(@ PathVariable String department) {
+    public ApplicationCreation getApplicationCreation(@PathVariable String department) {
         return applicationCreationService.getApplicationCreation(department);}
 
     @PostMapping
     public void addApplicationCreation(@RequestBody ApplicationCreation applicationCreation){
-        applicationCreationService.addAppplicationCreation(applicationCreation);}
+        applicationCreationService.addApplicationCreation(applicationCreation);}
 
-    @DeleteMapping("/{department}")
-    public void deleteApplicationCreation(@PathVariable String department){
-        ApplicationCreationService.deleteApplicatioCreation(department);}
+    @DeleteMapping("/{id}")
+    public void deleteApplicationCreation(@PathVariable String id){
+        applicationCreationService.deleteApplicationCreation(id);}
 }
