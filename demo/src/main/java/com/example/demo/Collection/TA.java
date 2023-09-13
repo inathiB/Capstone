@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class TA extends User {
         @Id
-        private int employeeID;
+        private String studentID;
         private String name;
 
 

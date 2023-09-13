@@ -1,11 +1,16 @@
 package com.example.demo.Logic;
+
 import com.example.demo.Collection.Course;
 import com.example.demo.Collection.CourseConvener;
-import com.example.demo.Repository.CourseRepository;
 import com.example.demo.Collection.Tutor;
+import com.example.demo.Repository.CourseRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 @AllArgsConstructor
 @Service
 /*Service Layer Business Logic*/
@@ -29,33 +34,12 @@ public class CourseService {
        Optional <Course>  course = courseRepository.findCourseByCourseCode(courseCode);
        if(course.isPresent()){
            Course actualCourse = course.get();
+           actualCourse.setCourseConvener(courseConvener);
 
-            if(actualCourse.getCourseConveners()==null ){
-                actualCourse.setCourseConveners(new ArrayList<>());}
-
-            if(!actualCourse.getCourseConveners().contains(courseConvener)){
-            actualCourse.getCourseConveners().add(courseConvener);}
-            else{
-                System.out.println("Course Convener already added");
-            }
 
        }else{System.out.println("Course not found");}
     }
-    public void removeCourseConvener(String courseCode, CourseConvener courseConvener){
-        Optional <Course> course = courseRepository.findCourseByCourseCode(courseCode);
-        if(course.isPresent()){
-            Course actualCourse = course.get();
-            if(actualCourse.getCourseConveners()==null){
-                actualCourse.setCourseConveners(new ArrayList<>());
-
-            System.out.println("Course hase no Course convener");
-            }
-            actualCourse.getCourseConveners().remove(courseConvener);
-        }else{
-            System.out.println("Course not found");
-        }
-    }
-    public List<CourseConvener> getCourseConvener(String courseCode){
+    /*public List<CourseConvener> getCourseConvener(String courseCode){
         return courseRepository.findCourseConvenerByCourseCode(courseCode);
     } /*Not sure if this will be necessary*/
     public void addTutor(String courseCode, Tutor tutor){
@@ -84,6 +68,24 @@ public class CourseService {
             actualCourse.getTutors().remove(tutor);
         }else{
             System.out.println("Course not found");
+        }
+    }
+
+    public Optional<Course> updateCourse(String courseCode, Course course) {
+        Optional<Course> course1 = courseRepository.findCourseByCourseCode(courseCode);
+       if(course1.isPresent()){
+           courseRepository.deleteById(courseCode);
+           courseRepository.insert(course);
+       }
+       return courseRepository.findCourseByCourseCode(courseCode);
+    }
+
+    public void updateCourseConvener(String courseCode, CourseConvener courseConvener) {
+        Optional<Course> course = courseRepository.findCourseByCourseCode(courseCode);
+        if(course.isPresent()){
+            Course course1 = course.get();
+            course1.setCourseConvener(courseConvener);
+
         }
     }
 }

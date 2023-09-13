@@ -1,14 +1,18 @@
 package com.example.demo.Controllers;
+
 import com.example.demo.Collection.Course;
 import com.example.demo.Collection.CourseConvener;
-import com.example.demo.Logic.CourseService;
 import com.example.demo.Collection.Tutor;
+import com.example.demo.Logic.CourseService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
+
 /*API*/
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("api/v1/courses")
 @AllArgsConstructor
 public class CourseController {
@@ -18,7 +22,7 @@ public class CourseController {
     public List<Course> fetchAllCourses(){
         return courseService.getAllCourses();}
 
-    @GetMapping("/course{id}")
+    @GetMapping("/{id}")
     public Course getCourse(@ PathVariable String id) {
         return courseService.getCourse(id);}
 
@@ -27,8 +31,8 @@ public class CourseController {
         courseService.addCourse(course);}
 
     @DeleteMapping("/{id}")
-    public void deleteCourse(@PathVariable String id){
-        courseService.deleteCourse(id);}
+    public String deleteCourse(@PathVariable String id){
+        courseService.deleteCourse(id);return "success";}
 
     /*Add a Course Convener to a course*/
     @PutMapping("/addCourseConvener")
@@ -37,11 +41,11 @@ public class CourseController {
             @RequestBody CourseConvener courseConvener ){
             courseService.addCourseConvener(courseCode, courseConvener);}
 
-    @PutMapping("/removeCourseConvener")
-    public void removeCourseConvener(
+    @PutMapping("/updateCourseConvener")
+    public void updateCourseConvener(
             @RequestParam ("courseCode") String courseCode,
             @RequestBody CourseConvener courseConvener){
-            courseService.removeCourseConvener(courseCode,courseConvener);}
+            courseService.updateCourseConvener(courseCode,courseConvener);}
 
     @PutMapping("/addTutor")
     public void addTutor(
@@ -54,4 +58,12 @@ public class CourseController {
             @RequestParam("courseCode") String courseCode,
             @RequestBody Tutor tutor){
             courseService.removeTutor(courseCode, tutor);}
+
+    @PutMapping("/updateCourse")
+    public Optional<Course> updateCourse(
+            @RequestParam("courseCode") String courseCode,
+            @RequestBody Course course ){
+        return courseService.updateCourse(courseCode, course);}
+
+
 }

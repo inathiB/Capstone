@@ -1,7 +1,5 @@
 package com.example.demo.Logic;
 
-import com.example.demo.Collection.Course;
-import com.example.demo.Collection.CourseConvener;
 import com.example.demo.Collection.Tutor;
 import com.example.demo.Collection.Tutorial;
 import com.example.demo.Repository.TutorialRepository;
@@ -9,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+
 @Service
 public class TutorialService {
     private final TutorialRepository tutorialRepository;

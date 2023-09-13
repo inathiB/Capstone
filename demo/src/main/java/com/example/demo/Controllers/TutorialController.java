@@ -6,8 +6,11 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 @RestController
 @RequestMapping("api/v1/tutorials")
+@CrossOrigin(origins = "http://localhost:3000")
+
 @AllArgsConstructor
 
 public class TutorialController {
@@ -18,7 +21,7 @@ public class TutorialController {
         public List<Tutorial> fetchAllTutorials(){
             return tutorialService.getAllTutorials();}
 
-        @GetMapping("/course{id}")
+        @GetMapping("/{id}")
         public Tutorial getTutorial(@PathVariable String id) {
             return tutorialService.getTutorial(id);}
 

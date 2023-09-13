@@ -11,5 +11,7 @@ public class Tutor extends User {
     private String name;
     @Id
     private String studentID;
+    private  String phone;
+
 
 }

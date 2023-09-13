@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 public class ApplicationSubmission {
     @Id
     private String id;
-    @Indexed(unique = true)
+   /* @Indexed(unique = true)*/
     private String studentNo;
     private String name;
     private String surname;

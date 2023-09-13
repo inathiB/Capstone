@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Document
 public class ApplicationCreation {
     @Id
-    @Indexed(unique = true)
+   /* @Indexed(unique = true)*/
     private String id;
     private String department;
     private String details;   

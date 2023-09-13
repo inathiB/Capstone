@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 public class CourseConvener extends User {
     @Id
-    private int employeeID;
+    private String employeeID;
     private String name;
 
 

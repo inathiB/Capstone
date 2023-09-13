@@ -14,14 +14,18 @@ public class Course {
 
         @Id
         private String courseCode;
-        private String name;
-        private List <CourseConvener> courseConveners;
+        private String courseName;
+        private CourseConvener courseConvener;
         private List<Tutor> tutors;
+        private String TA;
+        private String duration;
+        private String year;
+        private String creator;
 
 
-    public Course(String courseCode, String name) {
+    public Course(String courseCode, String courseName) {
         this.courseCode = courseCode;
-        this.name = name;
+        this.courseName = courseName;
     }
 }
 
